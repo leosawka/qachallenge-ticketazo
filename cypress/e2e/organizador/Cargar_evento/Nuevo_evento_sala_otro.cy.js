@@ -17,7 +17,7 @@ describe('Creacion de evento de inicio a fin con 1 fecha y 1 funcion', () => {
      const randomMes = Math.floor(Math.random() * 12) + 1;
     const diaMes = new Date(2025, randomMes, 0).getDate();
     const randomDia = Math.floor(Math.random() * diaMes) + 1;
-    const año = '2025';
+    const año = '2026';
 
     cy.get('[data-type="day"]').first().focus().type('{selectall}{backspace}').type(randomDia, { force: true });
     cy.get('[data-type="month"]').first().focus().type('{selectall}{backspace}').type(randomMes, { force: true });
@@ -39,24 +39,30 @@ describe('Creacion de evento de inicio a fin con 1 fecha y 1 funcion', () => {
     })
 
      cy.get('[data-cy="select-lugar-evento"]').click();
-    cy.get('[data-cy="Otro"]').click()
-    cy.contains('Nombre del Lugar').type('Espacio Mascara')
-    cy.contains('Calle').type('Santa fe')
-    cy.contains('Altura').type('920')
-    cy.contains('Codigo Postal').type('xs5000')
-    cy.contains('Provincia').click()
+    cy.contains('li', 'Otro').click();
+    cy.get(':nth-child(9) > .relative').type('Espacio Mascara')
+    cy.get(':nth-child(10) > .relative').type('Santa fe')
+    cy.get(':nth-child(11) > .relative').type('920')
+    cy.get(':nth-child(12) > .relative').type('xs5000')
+    cy.get('input[aria-label="Provincia"]').click()
     cy.contains('Córdoba').click();
+    cy.get('input[aria-label="Localidad"]').click()
+    cy.contains('Agua de Oro').click();
     
     const texto = 'a '.repeat(4);
     cy.get('[data-cy="input-info"]').type(texto);
     cy.wait(1000)
+  cy.get('.rounded-b-large > .z-0').click()
 
-    cy.get('.rounded-b-large > .z-0').click()
+    cy.contains('Seleccionar entrada').click()
+    cy.contains('li','VIP').click();
+    cy.get('.max-w-sm > .tap-highlight-transparent').type('30')
+    cy.get(':nth-child(3) > .group > .tap-highlight-transparent').type('15000')
+    cy.contains('Siguiente').click()
 
   
     cy.contains('Siguiente').click()
     cy.wait(2000)
-    cy.contains('Siguiente').click()
     cy.contains('Confirmar').click()
     
 
