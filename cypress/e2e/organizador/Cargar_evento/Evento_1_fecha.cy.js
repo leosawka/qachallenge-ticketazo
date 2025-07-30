@@ -13,6 +13,16 @@ describe('Creacion de evento de inicio a fin con 1 fecha y 1 funcion', () => {
     cy.get('button[aria-label="Toggle menu"]').click();
     cy.get(':nth-child(2) > .pb-4').click();
     cy.get('[data-cy="input-titulo"]').type(tituloAleatorio);
+
+     const randomMes = Math.floor(Math.random() * 12) + 1;
+    const diaMes = new Date(2025, randomMes, 0).getDate();
+    const randomDia = Math.floor(Math.random() * diaMes) + 1;
+    const año = '2025';
+
+    cy.get('[data-type="day"]').first().focus().type('{selectall}{backspace}').type(randomDia, { force: true });
+    cy.get('[data-type="month"]').first().focus().type('{selectall}{backspace}').type(randomMes, { force: true });
+    cy.get('[data-type="year"]').first().focus().type(año);
+
     cy.get('[data-cy="select-edad"]').click();
     cy.get('[data-cy="option-edad-ATP"]').click();
     cy.get('[data-cy="select-genero"] > .inline-flex').click();
@@ -55,6 +65,10 @@ describe('Creacion de evento de inicio a fin con 1 fecha y 1 funcion', () => {
     cy.contains('Seleccionar entrada').click()
     cy.get('.gap-1').click()
     cy.contains('Siguiente').click()
+    cy.wait(2000)
+    cy.contains('Siguiente').click()
+    cy.contains('Confirmar').click()
+    //no deja confirmar evento
 
   });
 });
