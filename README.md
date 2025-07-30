@@ -70,6 +70,16 @@ git push origin qa-tu-nombre
 
 # ✅ Casos de prueba implementados
 
+### Plan de Pruebas
+`https://docs.google.com/document/d/11bDpwqDef5o-F05wNrMR3ocsHnNhhjYhqsqHBLgoJVo/edit?tab=t.0`
+
+### Google Sheets
+`https://docs.google.com/spreadsheets/d/17Z6VntxFpjjmLtMBdbE95wKsbAz3_iRI4ZEMdVIqbU0/edit?usp=sharing`
+
+### Trello
+`https://trello.com/invite/b/687db31ddc0a285797334c1b/ATTI2e9ac8f00867ff396daf0bf328a8f7c0778F5708/grupo-9-qa-automation`
+
+
 ### Login de Organizador
 
 - Login exitoso como `himexxiii@gmail.com` con contraseña `Organizador9!`
