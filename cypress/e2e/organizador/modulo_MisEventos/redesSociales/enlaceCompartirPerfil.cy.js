@@ -6,7 +6,8 @@ describe('ticketazo', () => {
         cy.get('[data-cy="input-password"]').type('Organizador9!')
         cy.get('[data-cy="btn-login"]').click()
         cy.viewport(1360, 768)
-        cy.contains('Mis Eventos').should('exist').click()
+        cy.wait(2000)
+        cy.get('[data-cy="perfil-imagen"]').should('be.visible')
     });
     
     it('Icono Compartir perfil', () => {
